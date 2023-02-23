@@ -16,9 +16,21 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: georgiplamenov1/nexo:v1
+        image: georgiplamenov1/nexo:latest
         ports:
         - containerPort: 5001
+        env:
+        - name: DB_HOST
+          value: mysql
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_USER
+          value: mysql
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-password
+              key: password
 ---
 apiVersion: v1
 kind: Service
