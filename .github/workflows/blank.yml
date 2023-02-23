@@ -17,6 +17,18 @@ jobs:
         run: |
           docker build -t hello_world:latest . 
 
+      - name: Docker Login
+        run: |
+          docker login
+
+      - name: Tag Docker Image
+        run: |
+          docker tag hello_world:latest georgiplamenov1/nexo:v1
+
+      - name: Docker Push
+        run: |
+          docker push georgiplamenov1/nexo:v1
+
       - name: Start Docker Compose
         run: |
           docker-compose -f hello_world.yml up -d
