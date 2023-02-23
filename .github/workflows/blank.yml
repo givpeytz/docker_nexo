@@ -15,15 +15,11 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t hello_world:latest .
-          
-      - name: Ensure in which directory you are in
-        run: |
-          pwd && ls
+          docker build -t hello_world:latest . 
 
       - name: Start Docker Compose
         run: |
-          docker-compose up -d
+          docker-compose -f hello_world.yml up -d
 
       - name: Wait for Application to Start
         run: |
