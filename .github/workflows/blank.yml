@@ -37,3 +37,8 @@ jobs:
       - name: Stop Docker Compose
         run: |
           docker-compose -f hello_world.yml down
+      
+      - name: Run the hello_world and MySQL apps via K8s
+        run: |
+          kubectl apply -f .
+        continue-on-error: true
