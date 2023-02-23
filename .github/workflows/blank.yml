@@ -43,5 +43,5 @@ jobs:
       
       - name: Run the hello_world and MySQL apps via K8s
         run: |
-          kubectl apply -f .
+          kubectl apply -f k8s/ 
         continue-on-error: true
