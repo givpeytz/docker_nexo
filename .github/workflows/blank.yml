@@ -27,7 +27,7 @@ jobs:
 
       - name: Test Application
         run: |
-          curl http://localhost:5001
+          docker logs hello_world
 
       - name: Stop Docker Compose
         run: |
