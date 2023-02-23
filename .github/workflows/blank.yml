@@ -23,11 +23,11 @@ jobs:
 
       - name: Tag Docker Image
         run: |
-          docker tag hello_world:latest georgiplamenov1/nexo:v1
+          docker tag hello_world:latest georgiplamenov1/nexo:v2
 
       - name: Docker Push
         run: |
-          docker push georgiplamenov1/nexo:v1
+          docker push georgiplamenov1/nexo:v2
 
       - name: Start Docker Compose
         run: |
