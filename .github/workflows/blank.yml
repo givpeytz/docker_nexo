@@ -16,6 +16,10 @@ jobs:
       - name: Build Docker Image
         run: |
           docker build -t hello_world:latest .
+          
+      - name: Ensure in which directory you are in
+        run: |
+          pwd && ls
 
       - name: Start Docker Compose
         run: |
