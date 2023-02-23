@@ -15,7 +15,7 @@ jobs:
         run: |
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }} docker.io
 
-      - name: Build Docker image
+      - name: Build and Push Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -43,5 +43,11 @@ jobs:
       
       - name: Run the hello_world and MySQL apps via K8s
         run: |
-          kubectl apply -f k8s/ 
-        continue-on-error: true
+          kubectl apply -f k8s/
+      - name: Delete k8s apps
+        run: |
+          kubectl delete -f k8s/
+
+      - name: Print a happy/succesful message to the Nexo team
+        run: |
+          echo "I'm ready with the CI/CD part. I have also wanted to test the application via docker-compose from the pipeline and to apply the k8s manifests from it as well. Otherwise I'm aware of it should be finished , after the build and push docker image step is completed :)"
