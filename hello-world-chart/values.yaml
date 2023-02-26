@@ -1,0 +1,6 @@
+image:
+  repository: georgiplamenov1/nexo
+  tag: latest
+nameOverride: "nexo"
+fullnameOverride: "nexo"
+
